@@ -361,18 +361,32 @@
 		 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-	const swiper = new Swiper('.swiper', {
-		slidesPerView: 'auto',
-        loop: true,
-		autoplay: true,
-		speed: 800,
-		autoplay: {
-        delay: 100,
-        disableOnInteraction: false
-      },
-});
-</script>
-
+   document.addEventListener('DOMContentLoaded', function () {
+     const swiper = new Swiper('.swiper', {
+       slidesPerView: 'auto',
+       loop: true,
+       speed: 1200,
+       autoplay: {
+         delay: false,
+         disableOnInteraction: false
+       },
+       grabCursor: true, // Adiciona o cursor de mão ao passar pelos slides
+       watchSlidesProgress: true, // Ativa o monitoramento do progresso dos slides
+       navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+       },
+       observer: true,
+       observeParents: true,
+       observeSlideChildren: true,
+       on: {
+         init: function () {
+           swiper.autoplay.start();
+         },
+       },
+     });
+   });
+ </script>
       </div>
       </div>
       </div>
